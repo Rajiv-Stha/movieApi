@@ -9,7 +9,7 @@ app.use(
   })
 );
 const authentication = (req, res, next) => {
-  const apiKey = req.headers["movieApi"];
+  const apiKey = req.headers["movieapi"];
   if (apiKey === "dhenga") {
     next();
   } else {
