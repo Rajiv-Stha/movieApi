@@ -1,4 +1,4 @@
-const { movie } = require("../utils/data");
+const { movie, thumbnails } = require("../utils/data");
 
 const getMovie = (req, res) => {
   const { category } = req.query;
@@ -8,4 +8,8 @@ const getMovie = (req, res) => {
     res.status(200).json({ message: movie });
   }
 };
-module.exports = { getMovie };
+
+const getThumbnail = (req, res) => {
+  res.status(200).json({ message: thumbnails });
+};
+module.exports = { getMovie, getThumbnail };
