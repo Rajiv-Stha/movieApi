@@ -69,4 +69,5 @@ const movie = {
     },
   ],
 };
+
 module.exports = { movie };

@@ -8,5 +8,14 @@ app.use(
     methods: ["GET", "POST", "DELETE", "PUT"],
   })
 );
+const authentication = (req, res, next) => {
+  const apiKey = req.headers["movieApi"];
+  if (apiKey === "dhenga") {
+    next();
+  } else {
+    res.status(403).json({ message: "Invalid API Key" });
+  }
+};
+app.use(authentication);
 app.use("/api", require("./routes/movieRoute"));
 app.listen(8000, () => console.log("server listening on port 8000"));
