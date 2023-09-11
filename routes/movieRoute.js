@@ -1,8 +1,12 @@
 const router = require("express").Router();
-const { getMovie, getThumbnail } = require("../controller/movieController");
-const { movie } = require("../utils/data");
+const {
+  getMovie,
+  getThumbnail,
+  getSingleMovie,
+} = require("../controller/movieController");
 
 router.get("/movie", getMovie);
 router.get("/thumbnail", getThumbnail);
+router.get("/movie/:id", getSingleMovie);
 
 module.exports = router;
