@@ -23,4 +23,13 @@ const getSingleMovie = (req, res) => {
     res.status(404).json({ message: "Movie not found with this id " });
   }
 };
-module.exports = { getMovie, getThumbnail, getSingleMovie };
+
+const searchMovieByName = (req, res) => {
+  const { name } = req.query;
+  const allMovies = [...movie.comedy, ...movie.horror, thumbnails];
+
+  const regex = new RegExp(name, "i"); // 'i' flag makes the search case-insensitive
+  const searchedMovie = allMovies.filter((movie) => regex.test(movie.title));
+  return res.status(200).json({ message: searchedMovie, success: true });
+};
+module.exports = { getMovie, getThumbnail, getSingleMovie, searchMovieByName };
